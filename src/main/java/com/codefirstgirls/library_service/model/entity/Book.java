@@ -1,11 +1,11 @@
 package com.codefirstgirls.library_service.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.Data;
 
 @Entity
 @Table(name = "books")
-@Getter
+@Data
 public class Book {
 
     @Id
