@@ -43,7 +43,7 @@ public class BookUtil {
         return getBookNamesFromBookList(booksWithStatus);
     }
 
-    private List<String> getBookNamesFromBookList(List<Book> books){
+    public List<String> getBookNamesFromBookList(List<Book> books){ // this is only public for testing early on, without using mocking
         List<String> bookNames = new java.util.ArrayList<>(List.of());
         for(Book book : books){
             bookNames.add(book.getBookName());
