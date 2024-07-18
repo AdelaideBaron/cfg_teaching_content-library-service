@@ -1,3 +1,5 @@
+DROP DATABASE library;
+
 CREATE DATABASE library;
 
 USE library;
