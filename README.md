@@ -15,4 +15,4 @@ This application was made for learning:
 E.g. `COPY target/library-service-0.0.1-SNAPSHOT.jar /src/library-service.jar` -> `COPY some_new_path/library-service-0.0.1-SNAPSHOT.jar /src/library-service.jar`
 5. Use this dockerfile to build the image, by running `docker build -t library-service .`
 6. Navigating to docker desktop, or otherwise, obtain the image reference, and put this in place of the current image, on line 14 `    image: c9ae7795fbddee101aa7f337f2b3ca080bb5b5ec63bbbe9da93c5fda7cc4cb21`
-7. You should be able to run this now - either using the green 'play' button, or using docker-compose up 
+7. You should be able to run this now - either using the green 'play' button, or using `docker-compose up` (you must be in the same directory as docker-compose.yml)
