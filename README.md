@@ -1,5 +1,5 @@
 # library-service for the +masters CFG course
-This application was made for learning: 
+This application was made for learning/developing: 
 - Testing (Junit, mocking), and 
 - Docker (creating an image, and using containers)
 
