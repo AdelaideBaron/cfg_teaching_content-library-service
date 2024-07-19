@@ -1,0 +1,23 @@
+version: '3.8' # standard - don't change
+
+services: #standard word - don't change
+  db: # your chosen name for the service
+    image: mysql:8.0 # particular image we want
+    environment: #standard word - don't change - but you can remove
+      MYSQL_DATABASE: library # environment variable
+      MYSQL_ROOT_PASSWORD: password # your password
+#      MYSQL_USERNAME: my_app_user  # Replace with your actual username, if you need one
+# otherwise, remove
+    volumes: #standard word - don't change - but you can remove
+      - C:/Users/baron/Code/library-service/src/main/resources/database:/docker-entrypoint-initdb.d # absolute path to the init script - the script name (specify package it lives within) + :/docker-entrypoint-initdb.d
+
+  library-service: # your chosen name for the service
+    image: 9936d07d29640558b2aca91d3757a41b765bbd4fd67b51f46ea22c8739f30782 # for projects, please leave the value blank
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/library # replace db with the name of your mysql service from above (line 4)
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver # you'll probably not change this
+      # now tell the spring boot app how to access the database
+      SPRING_DATASOURCE_USERNAME: root # put own username here
+      SPRING_DATASOURCE_PASSWORD: password
