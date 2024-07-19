@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: library
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - C:/Users/baron/Code/library-service/src/main/resources/database:/docker-entrypoint-initdb.d
+#   the above must be an absolute path
+
+  library-service:
+    image: c9ae7795fbddee101aa7f337f2b3ca080bb5b5ec63bbbe9da93c5fda7cc4cb21
+    depends_on:
+      - db  # Ensure the app starts only after the database container is ready
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/library
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
